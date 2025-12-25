@@ -1,0 +1,1073 @@
+[
+    {
+        "id": "d492cb69de089cd4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e4fa7e374fc6b83d",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.137.1:49325",
+        "secpol": "Basic256Sha256",
+        "secmode": "SignAndEncrypt",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "ae34a49e6c397c8f",
+        "type": "ui_tab",
+        "name": "OPC UA",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "027cabb26b7d70ca",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "52b621fc1c9050f2",
+        "type": "ui_group",
+        "name": "OPC UA Dashboard",
+        "tab": "ae34a49e6c397c8f",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63d79859c684019e",
+        "type": "mqtt-broker",
+        "name": "opc ua ",
+        "broker": "192.168.137.1",
+        "port": 1883,
+        "clientid": "abcd",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "16a1904c70483df3",
+        "type": "modbus-client",
+        "name": "holding register",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "8ef746d9bb9cac48",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.137.1:49325",
+        "secpol": "Basic256Sha256",
+        "secmode": "SignAndEncrypt",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "9260a9daa339f931",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://SHUBHAM-LAPPY:49320",
+        "secpol": "Basic256Sha256",
+        "secmode": "SignAndEncrypt",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "181c44b3faa806d4",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://127.0.0.1:49320",
+        "secpol": "Basic256Sha256",
+        "secmode": "SignAndEncrypt",
+        "none": false,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "748530a67584fed7",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.0.10:4840",
+        "secpol": "Basic256Sha256",
+        "secmode": "SignAndEncrypt",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "3b00bb43d16cd68b",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.0.10:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "529d0c96b0a3a136",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt://broker.emqx.io",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "71",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "64922518711a09fc",
+        "type": "mqtt-broker",
+        "name": "new broker",
+        "broker": "192.168.137.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8af06ee44ac6aeff",
+        "type": "influxdb3-config",
+        "name": "database",
+        "host": "http://localhost:8181",
+        "database": "mydb"
+    },
+    {
+        "id": "0f30769bfeddc4c0",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "local",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "3d24d553259ab4bb",
+        "type": "firebase config",
+        "firebaseurl": "nodered-to-firebase-4be8b-default-rtdb.asia-southeast1.firebasedatabase.app/",
+        "loginType": "none"
+    },
+    {
+        "id": "c8e916f15b256438",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "cloud",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com/",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "6b506079431be71e",
+        "type": "inject",
+        "z": "d492cb69de089cd4",
+        "name": "simulated value from delta plc",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "ns=2;s=channel2.Device1.delta_c0;datatype=int32",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "bcd743bf1379375a"
+            ]
+        ]
+    },
+    {
+        "id": "bcd743bf1379375a",
+        "type": "OpcUa-Client",
+        "z": "d492cb69de089cd4",
+        "endpoint": "181c44b3faa806d4",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 440,
+        "y": 80,
+        "wires": [
+            [
+                "0494eda82a0c5d09",
+                "aca7a11e24561b6e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2d0d651f9593f3e6",
+        "type": "mqtt out",
+        "z": "d492cb69de089cd4",
+        "name": "",
+        "topic": "test",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "64922518711a09fc",
+        "x": 910,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e00cb98719b6dfd3",
+        "type": "mqtt in",
+        "z": "d492cb69de089cd4",
+        "name": "",
+        "topic": "test",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "64922518711a09fc",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "570e8d8ddc8ab25e"
+            ]
+        ]
+    },
+    {
+        "id": "1f0441c31fbcd26b",
+        "type": "debug",
+        "z": "d492cb69de089cd4",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "55516e976e7dd3e9",
+        "type": "aedes broker",
+        "z": "d492cb69de089cd4",
+        "name": "broker",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "usetls": false,
+        "x": 150,
+        "y": 620,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0494eda82a0c5d09",
+        "type": "debug",
+        "z": "d492cb69de089cd4",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "5a808530f34b2b89",
+        "type": "debug",
+        "z": "d492cb69de089cd4",
+        "d": true,
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "877ae8395b566f33",
+        "type": "change",
+        "z": "d492cb69de089cd4",
+        "d": true,
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fields.temprature",
+                "pt": "msg",
+                "to": "30*$random()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fields.humidity",
+                "pt": "msg",
+                "to": "50*$random()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tags.timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$append(fields,tags)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1220,
+        "y": 340,
+        "wires": [
+            [
+                "5a808530f34b2b89"
+            ]
+        ]
+    },
+    {
+        "id": "446f7aa4d61c4151",
+        "type": "influxdb out",
+        "z": "d492cb69de089cd4",
+        "influxdb": "c8e916f15b256438",
+        "name": "influxdb cloud",
+        "measurement": "sensordata",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "neuroread",
+        "bucket": "plc_data",
+        "x": 1000,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "4bfb750cfb5c9256",
+        "type": "inject",
+        "z": "d492cb69de089cd4",
+        "d": true,
+        "name": "",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 1030,
+        "y": 400,
+        "wires": [
+            [
+                "877ae8395b566f33"
+            ]
+        ]
+    },
+    {
+        "id": "d309a380a44e8ae5",
+        "type": "influxdb in",
+        "z": "d492cb69de089cd4",
+        "d": true,
+        "influxdb": "0f30769bfeddc4c0",
+        "name": "",
+        "query": "from(bucket: \"neuroread\")\n  // 1. Fixed Range: Look at the last 5 minutes\n  |> range(start: -5m)\n  \n  // 2. Filters (Standard)\n  |> filter(fn: (r) => r._measurement == \"sensordata\")\n  |> filter(fn: (r) => r._field == \"value\")\n  \n  // 3. Fixed Window: Average the data every 10 seconds\n  |> aggregateWindow(every: 10s, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "neuroread",
+        "x": 530,
+        "y": 760,
+        "wires": [
+            [
+                "77d107f16b4290bd"
+            ]
+        ]
+    },
+    {
+        "id": "570e8d8ddc8ab25e",
+        "type": "function",
+        "z": "d492cb69de089cd4",
+        "name": "function 1",
+        "func": "// 1. Set the Measurement Name\nmsg.measurement = \"sensordata\";\n\n// 2. Build the Payload: [ Fields, Tags ]\nmsg.payload = [\n    {\n        // Fields: The changing numbers you want to graph\n        temprature: msg.payload.temprature\n    },\n    {\n        // Tags: The labels you use for filtering\n        node_id: msg.topic,\n        datatype: msg.payload.datatype,\n        quality: msg.payload.quality  // Moved to Tags as requested!\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 660,
+        "wires": [
+            [
+                "446f7aa4d61c4151",
+                "59c89d4acae77f19",
+                "1f0441c31fbcd26b"
+            ]
+        ]
+    },
+    {
+        "id": "382be809a93a46d7",
+        "type": "inject",
+        "z": "d492cb69de089cd4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 760,
+        "wires": [
+            [
+                "d309a380a44e8ae5"
+            ]
+        ]
+    },
+    {
+        "id": "77d107f16b4290bd",
+        "type": "debug",
+        "z": "d492cb69de089cd4",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "aca7a11e24561b6e",
+        "type": "function",
+        "z": "d492cb69de089cd4",
+        "name": "function 2",
+        "func": "msg.payload = {\n    temprature: msg.payload,              // Grabs the original number (e.g., -930)\n    timestamp: msg.sourceTimestamp,  // Grabs the time\n    quality: msg.statusCode?.name,         // Grabs the quality info\n    datatype: msg.datatype           // Grabs the type\n};\n\nreturn msg;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "2d0d651f9593f3e6"
+            ]
+        ]
+    },
+    {
+        "id": "bdb6a1fe8ed56443",
+        "type": "inject",
+        "z": "d492cb69de089cd4",
+        "name": "Read counter",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "ns=2;s=Simulation Examples.Functions.Ramp2;datatype=int32",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "5799735d9091b7e6"
+            ]
+        ]
+    },
+    {
+        "id": "5799735d9091b7e6",
+        "type": "OpcUa-Client",
+        "z": "d492cb69de089cd4",
+        "endpoint": "181c44b3faa806d4",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "e78d2fc71f64348f",
+                "7b7acb87830d2266"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e78d2fc71f64348f",
+        "type": "debug",
+        "z": "d492cb69de089cd4",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1d00621db19ad45a",
+        "type": "OpcUa-Client",
+        "z": "d492cb69de089cd4",
+        "endpoint": "181c44b3faa806d4",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "db5d51f818586830",
+                "05b78da2c9efec49"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "db5d51f818586830",
+        "type": "debug",
+        "z": "d492cb69de089cd4",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "59c89d4acae77f19",
+        "type": "influxdb out",
+        "z": "d492cb69de089cd4",
+        "influxdb": "0f30769bfeddc4c0",
+        "name": "influxdb local",
+        "measurement": "sensordata",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "neuroread",
+        "bucket": "neuroread",
+        "x": 970,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7b7acb87830d2266",
+        "type": "function",
+        "z": "d492cb69de089cd4",
+        "name": "function 3",
+        "func": "// 1. Set the Measurement Name\nmsg.measurement = \"sensordata\";\n\n// 2. Build the Payload: [ Fields, Tags ]\nmsg.payload = [\n    {\n        // Fields: The numeric pressure value you want to graph\n        pressure: msg.payload\n    },\n    {\n        // Tags: The 3 labels used for filtering in Grafana\n        node_id: \"pressure\",\n        datatype: msg.datatype || \"number\",\n        quality: msg.statusCode?.name || \"Good\"\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 260,
+        "wires": [
+            [
+                "d283940caa1af9d5",
+                "59c89d4acae77f19",
+                "446f7aa4d61c4151"
+            ]
+        ]
+    },
+    {
+        "id": "d283940caa1af9d5",
+        "type": "mqtt out",
+        "z": "d492cb69de089cd4",
+        "name": "vibration",
+        "topic": "vibration ",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "64922518711a09fc",
+        "x": 860,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "05b78da2c9efec49",
+        "type": "function",
+        "z": "d492cb69de089cd4",
+        "name": "function 4",
+        "func": "// 1. Set the Measurement Name\nmsg.measurement = \"sensordata\";\n\n// 2. Build the Payload: [ Fields, Tags ]\nmsg.payload = [\n    {\n        // Fields: The numeric pressure value you want to graph\n        vibration: msg.payload\n    },\n    {\n        // Tags: The 3 labels used for filtering in Grafana\n        node_id: \"vibration\",\n        datatype: msg.datatype || \"number\",\n        quality: msg.statusCode?.name || \"Good\"\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 400,
+        "wires": [
+            [
+                "59c89d4acae77f19",
+                "446f7aa4d61c4151"
+            ]
+        ]
+    },
+    {
+        "id": "b31cbb5667e65ec6",
+        "type": "inject",
+        "z": "d492cb69de089cd4",
+        "name": "Read counter",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "ns=2;s=Simulation Examples.Functions.Ramp3;datatype=int32",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "1d00621db19ad45a"
+            ]
+        ]
+    },
+    {
+        "id": "130f113be3a94ddf",
+        "type": "OpcUa-Client",
+        "z": "d492cb69de089cd4",
+        "endpoint": "181c44b3faa806d4",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "d7868f96cec09a1a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d7868f96cec09a1a",
+        "type": "function",
+        "z": "d492cb69de089cd4",
+        "name": "function 5",
+        "func": "// 1. Set the Measurement Name\nmsg.measurement = \"sensordata\";\n\n// 2. Build the Payload: [ Fields, Tags ]\nmsg.payload = [\n    {\n        // Fields: The numeric pressure value you want to graph\n        vibration: msg.payload\n    },\n    {\n        // Tags: The 3 labels used for filtering in Grafana\n        node_id: \"vibration\",\n        datatype: msg.datatype || \"number\",\n        quality: msg.statusCode?.name || \"Good\"\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 520,
+        "wires": [
+            [
+                "446f7aa4d61c4151",
+                "59c89d4acae77f19"
+            ]
+        ]
+    },
+    {
+        "id": "92289009d757ce70",
+        "type": "inject",
+        "z": "d492cb69de089cd4",
+        "name": "scan time of delta plc",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "ns=2;s=channel2.Device1.delta_d0;datatype=int32",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "130f113be3a94ddf"
+            ]
+        ]
+    },
+    {
+        "id": "35ba0975b09d6d3d",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-opcua": "0.2.342",
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-modbus": "5.44.1",
+            "node-red-contrib-influxdb3": "1.0.2",
+            "node-red-contrib-influxdb": "0.7.0",
+            "node-red-contrib-firebase": "1.1.1",
+            "node-red-contrib-aedes": "0.15.0"
+        }
+    }
+]

@@ -1,0 +1,2 @@
+@py.exe C:\Users\Shubh Anand Singh\Desktop\Project-2\kafka-app\python\pw.py %*
+@pause

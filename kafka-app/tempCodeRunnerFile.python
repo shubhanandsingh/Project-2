@@ -1,0 +1,10 @@
+# #/////Here we are difining the range
+# for i in range (12, 33):
+#     print(int(i))
+# #//////third will be the step argument
+# for i in range (22, 100, 3):
+#     print(i)
+#//use a negative number for the step argument
+for i in range (5, -10, -1):
+    print(i)
+    
